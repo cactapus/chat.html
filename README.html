@@ -1,5 +1,3 @@
-chat.html
-=========
 <!DOCTYPE html>
 <html>
         <head>
@@ -32,8 +30,20 @@ chat.html
  
                 }
                 function onData(data) {
-                    var obj = data.val();
-                    var row = $('<td></tr>');
+                        var obj = data.val();
+                        var row = $('<tr ></tr>');
+                        var name = $('<td></td>');
+                        name.addClass('name');
+                        name.append(obj.name);
+                        row.append(name);
+                        var message = $('<td></td>');
+                        message.append(message);
+                        row.append(message);
+                        var time = $('<td></td');
+                        row.append(time);
+                        $('tbody').pre[nd(row);]
+
+
                 }
                 function Onsubmit() {
                    var envelope = {
@@ -76,3 +86,4 @@ chat.html
                         </tbody>
                 </table>
         </body>
+</html>
