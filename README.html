@@ -1,0 +1,78 @@
+chat.html
+=========
+<!DOCTYPE html>
+<html>
+        <head>
+                <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+                <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+                <script type="text/javascript" src="http://cdn.firebase.com/v0/firebase.js"></script>
+                <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+                <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+                <style>
+                table {
+                        width: 100%;
+                        font-size: 24px;
+                        font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+                }
+                .name {
+                        text-align: right;
+                        padding-right: 20px;
+                        font-weight:700;
+                        color:#4f4f4f;
+                }
+                </style>
+                <script type="text/javascript">
+                var firebase;
+                function setup() {
+                        firebase = new Firebase("https://funchat.firebaseio.com/")
+                        firebase.on('child_added', onData);
+                        $('button').click(Onsubmit);
+                }
+                function getTime() {
+ 
+                }
+                function onData(data) {
+                    var obj = data.val();
+                    var row = $('<td></tr>');
+                }
+                function Onsubmit() {
+                   var envelope = {
+                        name: 'Satvik',
+                        message: $('#message').val()
+                  };
+                  firebase.push(envelope);
+ 
+                }
+ 
+                $(document).ready(setup);
+                </script>
+        </head>
+        <body>
+                <table>
+                        <thead>
+                                <tr>
+                                        <td class = "name">
+                                                Satvik
+                                        </td>
+                                        <td>
+                                                <input id="message">
+                                        </td>
+                                        <td>
+                                                <button>submit</button>
+                                        </td>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <tr>
+                                        <td class="name">Keshav</td>
+                                        <td>How's it going?</td>
+                                        <td>11:34 pm</td>
+                                </tr>
+                                <tr>
+                                        <td class="name">Joe</td>
+                                        <td>Not too bad, how about you?</td>
+                                        <td>11:37 pm</td>
+                                </tr>
+                        </tbody>
+                </table>
+        </body>
